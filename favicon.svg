@@ -6,8 +6,8 @@
       <stop offset="100%" style="stop-color:#059669;stop-opacity:1" />
     </linearGradient>
   </defs>
-  <!-- Clean background -->
-  <rect width="32" height="32" rx="8" fill="url(#gradient)" />
-  <!-- Simple, clean M -->
-  <text x="16" y="24" font-family="Inter, system-ui, sans-serif" font-size="20" font-weight="700" text-anchor="middle" fill="white">M</text>
+  <!-- Square background -->
+  <rect width="32" height="32" rx="6" fill="url(#gradient)" stroke="#ffffff" stroke-width="1"/>
+  <!-- Bold M letter -->
+  <text x="16" y="23" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="900" text-anchor="middle" fill="white">M</text>
 </svg>
