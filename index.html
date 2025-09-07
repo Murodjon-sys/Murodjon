@@ -154,13 +154,39 @@
 
         /* Burger menu animation */
         .burger-menu {
-            max-height: 0;
-            overflow: hidden;
-            transition: all 0.3s ease-in-out;
+            position: fixed;
+            top: 0;
+            left: -100%;
+            width: 80%;
+            height: 100vh;
+            background: linear-gradient(135deg, #000000 0%, #052e2b 50%, #10b981 100%) fixed;
+            background-attachment: fixed;
+            transition: left 0.3s ease-in-out;
+            z-index: 1000;
+            overflow-y: auto;
         }
 
         .burger-menu.open {
-            max-height: 100vh;
+            left: 0;
+        }
+
+        /* Menu overlay */
+        .menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.5);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease-in-out;
+            z-index: 999;
+        }
+
+        .menu-overlay.active {
+            opacity: 1;
+            visibility: visible;
         }
 
         /* Push content down when menu is open */
@@ -206,7 +232,14 @@
             <button id="menu-btn" class="md:hidden text-2xl text-white"><i class="fas fa-bars"></i></button>
         </div>
         <!-- Burger Menu -->
-        <div id="burger-menu" class="burger-menu md:hidden bg-black/95 backdrop-blur-sm text-white relative w-full z-50">
+        <div id="menu-overlay" class="menu-overlay md:hidden"></div>
+        <div id="burger-menu" class="burger-menu md:hidden text-white">
+            <div class="flex justify-between items-center p-6 border-b border-white/10">
+                <h3 class="text-xl font-bold text-white">Latipov Murodjon</h3>
+                <button id="close-menu" class="text-2xl text-white hover:text-primary transition-colors">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
             <nav class="flex flex-col p-6">
                 <a href="#home" class="menu-link text-gray-200 hover:text-primary transition-all duration-300 py-3 px-4 rounded-lg hover:bg-primary/10">Bosh sahifa</a>
                 <a href="#about" class="menu-link text-gray-200 hover:text-primary transition-all duration-300 py-3 px-4 rounded-lg hover:bg-primary/10">Men haqimda</a>
@@ -219,47 +252,54 @@
     </header>
 
     <!-- Hero -->
-    <section id="home" class="min-h-screen flex items-center pt-16 pb-8 relative overflow-hidden">
-        <div class="absolute inset-0 parallax-bg z-0"></div>
-        <div class="absolute inset-0 hero-pattern opacity-10 z-0"></div>
-        <div class="responsive-container flex flex-col md:flex-row items-center gap-6 md:gap-8 relative z-10">
-            <div class="md:w-1/2" data-aos="fade-up">
-                <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-white text-center md:text-left leading-tight">Salom, men <span
-                        class="bg-gradient-to-r from-emerald-300 to-white bg-clip-text text-transparent font-bold drop-shadow-lg">Latipov
-                        Murodjon</span>
-                </h1>
-                <h2 class="text-xl sm:text-2xl md:text-3xl mb-6 text-gray-100 text-center md:text-left"><span id="typed"
-                        class="font-bold"></span></h2>
-                <p class="text-sm sm:text-base md:text-lg font-medium mb-6 text-gray-200 text-center md:text-left max-w-lg leading-relaxed">Men zamonaviy texnologiyalar va
-                    foydalanuvchi tajribasiga e'tibor
-                    qaratgan holda chiroyli, moslashuvchan veb-saytlar yarataman.</p>
+<section id="home" class="py-24 md:py-16 relative">
+    <div
+        class="responsive-container flex flex-col md:flex-row items-center justify-center gap-6 md:gap-8 relative z-10">
+        <div class="w-full md:w-1/2 text-center md:text-left" data-aos="fade-up">
+            <h1 class="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold mb-3 text-white leading-tight">
+                Salom, men
+                <span
+                    class="bg-gradient-to-r from-emerald-300 to-white bg-clip-text text-transparent font-bold drop-shadow-lg">
+                    Latipov Murodjon
+                </span>
+            </h1>
+            <h2 class="text-lg sm:text-xl md:text-3xl mb-4 text-gray-100">
+                <span id="typed" class="font-bold"></span>
+            </h2>
+            <p
+                class="text-sm sm:text-base md:text-lg font-medium mb-6 text-gray-200 max-w-xl mx-auto md:mx-0 leading-relaxed">
+                Men zamonaviy texnologiyalar va foydalanuvchi tajribasiga e'tibor qaratgan holda chiroyli, moslashuvchan
+                veb-saytlar yarataman.
+            </p>
 
-                <div class="flex flex-col sm:flex-row gap-3 justify-center md:justify-start mb-6">
-                    <a href="#projects"
-                        class="bg-gradient-to-r from-primary to-emerald-400 text-white px-6 py-3 rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 font-semibold text-base text-center">
-                        Loyihalarni ko'rish
-                    </a>
-                    <a href="#contact"
-                        class="border-2 border-primary text-primary px-6 py-3 rounded-lg hover:bg-primary hover:text-white transition-all duration-300 font-semibold text-base text-center">
-                        Bog'lanish
-                    </a>
-                </div>
-            </div>
-            <div class="md:w-1/2 flex justify-center" data-aos="zoom-in" data-aos-delay="300">
-                <div class="relative">
-                    <div
-                        class="absolute -inset-4 bg-gradient-to-r from-primary to-accent-color rounded-full blur-lg opacity-20">
-                    </div>
-                    <img src="Mura.jpg"
-                        alt="Latipov Murodjon"
-                        class="relative w-64 h-64 sm:w-80 sm:h-80 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full shadow-xl object-cover border-4 border-white float-animation pulse-glow">
-                </div>
+            <div class="flex flex-col sm:flex-row gap-3 justify-center md:justify-start">
+                <a href="#projects"
+                    class="bg-gradient-to-r from-primary to-emerald-400 text-white px-6 py-3 rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 font-semibold text-base text-center">
+                    Loyihalarni ko'rish
+                </a>
+                <a href="#contact"
+                    class="border-2 border-primary text-primary px-6 py-3 rounded-lg hover:bg-primary hover:text-white transition-all duration-300 font-semibold text-base text-center">
+                    Bog'lanish
+                </a>
             </div>
         </div>
-    </section>
+
+        <!-- Rasm faqat md+ ekranda chiqadi -->
+        <div class="hidden md:flex md:w-1/2 justify-center" data-aos="zoom-in" data-aos-delay="300">
+            <div class="relative">
+                <div
+                    class="absolute -inset-4 bg-gradient-to-r from-primary to-accent-color rounded-full blur-lg opacity-20">
+                </div>
+                <img src="Mura.jpg" alt="Latipov Murodjon"
+                    class="relative w-72 h-72 lg:w-96 lg:h-96 rounded-full shadow-xl object-cover border-4 border-white float-animation pulse-glow">
+            </div>
+        </div>
+    </div>
+</section>
+
 
     <!-- Stats Section -->
-    <section class="py-12 bg-transparent">
+    <section class="py-4 bg-transparent">
         <div class="responsive-container grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 text-center">
             <div class="stats-card bg-black/40 backdrop-blur-sm border border-white/10 p-4 rounded-xl shadow hover:bg-black/60" data-aos="fade-up">
                 <h3 class="text-2xl md:text-3xl font-bold text-primary mb-1" data-count="3">0</h3>
@@ -284,11 +324,11 @@
     </section>
 
     <!-- About Section -->
-    <section id="about" class="py-20">
+    <section id="about" class="py-6">
         <div class="responsive-container">
-            <h2 class="text-3xl font-bold text-center mb-16" data-aos="fade-up">Men haqimda</h2>
+            <h2 class="text-3xl font-bold text-center mb-8" data-aos="fade-up">Men haqimda</h2>
 
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
                 <div class="order-1 lg:order-1" data-aos="fade-right">
                     <div class="relative max-w-lg mx-auto lg:mx-0">
                         <div
@@ -356,11 +396,11 @@
     </section>
 
     <!-- Skills Section -->
-    <section id="skills" class="py-12">
+    <section id="skills" class="py-6">
         <div class="responsive-container">
-            <h2 class="text-3xl font-bold text-center mb-16 text-white fon" data-aos="fade-up">Mening ko'nikmalarim</h2>
+            <h2 class="text-3xl font-bold text-center mb-6 text-white fon" data-aos="fade-up">Mening ko'nikmalarim</h2>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div data-aos="fade-right">
                     <h3 class="text-xl font-bold mb-6 text-white">Texnik ko'nikmalar</h3>
                     <div class="space-y-6">
@@ -986,26 +1026,40 @@
             // Toggle menu function
             function toggleBurgerMenu() {
                 isMenuOpen = !isMenuOpen;
-                const mainContent = document.querySelector('main') || document.querySelector('#home');
+                const menuOverlay = document.getElementById('menu-overlay');
                 
                 if (isMenuOpen) {
                     // Open menu
                     burgerMenu.classList.add('open');
-                    if (mainContent) mainContent.classList.add('content-pushed');
-                    menuBtn.querySelector('i').classList.remove('fa-bars');
-                    menuBtn.querySelector('i').classList.add('fa-times');
+                    menuOverlay.classList.add('active');
+                    document.body.style.overflow = 'hidden';
                 } else {
                     // Close menu
                     burgerMenu.classList.remove('open');
-                    if (mainContent) mainContent.classList.remove('content-pushed');
-                    menuBtn.querySelector('i').classList.remove('fa-times');
-                    menuBtn.querySelector('i').classList.add('fa-bars');
+                    menuOverlay.classList.remove('active');
+                    document.body.style.overflow = 'auto';
                 }
             }
 
             // Event listeners
             if (menuBtn && burgerMenu) {
                 menuBtn.addEventListener('click', toggleBurgerMenu);
+
+                // Close menu button
+                const closeMenuBtn = document.getElementById('close-menu');
+                if (closeMenuBtn) {
+                    closeMenuBtn.addEventListener('click', () => {
+                        if (isMenuOpen) toggleBurgerMenu();
+                    });
+                }
+
+                // Close menu when clicking overlay
+                const menuOverlay = document.getElementById('menu-overlay');
+                if (menuOverlay) {
+                    menuOverlay.addEventListener('click', () => {
+                        if (isMenuOpen) toggleBurgerMenu();
+                    });
+                }
 
                 // Close menu when clicking on nav links
                 menuLinks.forEach(link => {
