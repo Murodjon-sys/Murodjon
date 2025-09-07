@@ -1,0 +1,1085 @@
+<!DOCTYPE html>
+<html lang="uz">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latipov Murodjon - Portfolio</title>
+    <link rel="icon" href="favicon.svg?v=3" type="image/svg+xml">
+    <link rel="icon" href="favicon.svg?v=3" type="image/svg+xml" sizes="32x32">
+    <link rel="apple-touch-icon" href="favicon.svg?v=3">
+    <meta name="theme-color" content="#0b3d37">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#10b981',
+                        secondary: '#000000',
+                        dark: '#0f172a',
+                        light: '#f0fdf4',
+                        'dark-bg': '#000000',
+                        'text-color': '#ffffff',
+                        'accent-color': '#6ee7b7'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+        * {
+            box-sizing: border-box;
+        }
+        
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            overflow-x: hidden;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #ffffff;
+            background: linear-gradient(135deg, #000000 0%, #052e2b 40%, #10b981 100%);
+            background-attachment: fixed;
+            min-height: 100vh;
+        }
+        
+        /* Custom responsive container */
+        .responsive-container {
+            width: 100%;
+            margin: 0 auto;
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+        
+        @media (min-width: 640px) {
+            .responsive-container {
+                padding-left: 1.5rem;
+                padding-right: 1.5rem;
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .responsive-container {
+                max-width: 1024px;
+                padding-left: 2rem;
+                padding-right: 2rem;
+            }
+        }
+        
+        @media (min-width: 1280px) {
+            .responsive-container {
+                max-width: 1280px;
+            }
+        }
+
+        .parallax-bg {
+            background: linear-gradient(135deg, #10b981 0%, #000000 100%);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+        }
+
+        @keyframes gradientBG {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .hero-pattern {
+            background-image: radial-gradient(#10b981 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+
+        .project-card:hover .project-image {
+            transform: scale(1.05);
+        }
+
+        .project-overlay {
+            transition: all 0.3s ease;
+        }
+
+        .stats-card {
+            transition: transform 0.3s ease;
+        }
+
+        .stats-card:hover {
+            transform: translateY(-10px) scale(1.02);
+        }
+        
+        /* Floating animation */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .float-animation {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        /* Pulse animation */
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 20px rgba(16, 185, 129, 0.3); }
+            50% { box-shadow: 0 0 30px rgba(16, 185, 129, 0.6); }
+        }
+        
+        .pulse-glow {
+            animation: pulse-glow 2s ease-in-out infinite;
+        }
+
+        .blog-card {
+            transition: all 0.3s ease;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        /* Burger menu animation */
+        .burger-menu {
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .burger-menu.open {
+            max-height: 100vh;
+        }
+
+        /* Push content down when menu is open */
+        .content-pushed {
+            margin-top: 300px;
+            transition: margin-top 0.3s ease-in-out;
+        }
+    </style>
+</head>
+
+<body class="text-white font-sans">
+    <!-- Preloader -->
+    <div id="preloader" class="fixed inset-0 bg-gradient-to-br from-black via-emerald-900 to-emerald-600 flex items-center justify-center z-50">
+        <div class="w-16 h-16 border-4 border-primary border-t-transparent rounded-full animate-spin"></div>
+    </div>
+
+    <!-- Header -->
+    <header class="fixed w-full bg-black/50 backdrop-blur-sm shadow-md z-50 text-white">
+        <div class="responsive-container py-4 flex justify-between items-center">
+            <a href="#" class="flex items-center gap-3 text-xl sm:text-2xl font-extrabold bg-gradient-to-r from-emerald-400 to-emerald-200 bg-clip-text text-transparent hover:from-emerald-300 hover:to-white transition-all duration-300">
+                <div class="w-10 h-10 sm:w-12 sm:h-12 relative">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 512 512" class="drop-shadow-lg">
+                        <defs>
+                            <linearGradient id="headerGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#34d399;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#10b981;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                        <circle cx="256" cy="256" r="256" fill="url(#headerGradient)" />
+                        <text x="256" y="360" font-family="Inter, Arial, sans-serif" font-size="350" font-weight="900" text-anchor="middle" fill="white" stroke="rgba(52,211,153,0.5)" stroke-width="3">M</text>
+                    </svg>
+                </div>
+                Latipov Murodjon
+            </a>
+            <nav class="hidden md:flex space-x-8 font-medium">
+                <a href="#home" class="text-gray-200 hover:text-primary hover:scale-105 transition-all duration-300 ease-in-out">Bosh sahifa</a>
+                <a href="#about" class="text-gray-200 hover:text-primary hover:scale-105 transition-all duration-300 ease-in-out">Men haqimda</a>
+                <a href="#skills" class="text-gray-200 hover:text-primary hover:scale-105 transition-all duration-300 ease-in-out">Ko'nikmalar</a>
+                <a href="#projects" class="text-gray-200 hover:text-primary hover:scale-105 transition-all duration-300 ease-in-out">Loyihalar</a>
+                <a href="#blog" class="text-gray-200 hover:text-primary hover:scale-105 transition-all duration-300 ease-in-out">Maqolalar</a>
+                <a href="#contact" class="text-gray-200 hover:text-primary hover:scale-105 transition-all duration-300 ease-in-out">Aloqa</a>
+            </nav>
+            <button id="menu-btn" class="md:hidden text-2xl text-white"><i class="fas fa-bars"></i></button>
+        </div>
+        <!-- Burger Menu -->
+        <div id="burger-menu" class="burger-menu md:hidden bg-black/95 backdrop-blur-sm text-white relative w-full z-50">
+            <nav class="flex flex-col p-6">
+                <a href="#home" class="menu-link text-gray-200 hover:text-primary transition-all duration-300 py-3 px-4 rounded-lg hover:bg-primary/10">Bosh sahifa</a>
+                <a href="#about" class="menu-link text-gray-200 hover:text-primary transition-all duration-300 py-3 px-4 rounded-lg hover:bg-primary/10">Men haqimda</a>
+                <a href="#skills" class="menu-link text-gray-200 hover:text-primary transition-all duration-300 py-3 px-4 rounded-lg hover:bg-primary/10">Ko'nikmalar</a>
+                <a href="#projects" class="menu-link text-gray-200 hover:text-primary transition-all duration-300 py-3 px-4 rounded-lg hover:bg-primary/10">Loyihalar</a>
+                <a href="#blog" class="menu-link text-gray-200 hover:text-primary transition-all duration-300 py-3 px-4 rounded-lg hover:bg-primary/10">Maqolalar</a>
+                <a href="#contact" class="menu-link text-gray-200 hover:text-primary transition-all duration-300 py-3 px-4 rounded-lg hover:bg-primary/10">Aloqa</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section id="home" class="min-h-screen flex items-center pt-24 relative overflow-hidden">
+        <div class="absolute inset-0 parallax-bg z-0"></div>
+        <div class="absolute inset-0 hero-pattern opacity-10 z-0"></div>
+        <div class="responsive-container flex flex-col md:flex-row items-center gap-8 md:gap-12 relative z-10">
+            <div class="md:w-1/2" data-aos="fade-up">
+                <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold mb-6 text-white text-center md:text-left">Salom, men <span
+                        class="bg-gradient-to-r from-emerald-300 to-white bg-clip-text text-transparent font-black drop-shadow-lg">Latipov
+                        Murodjon</span>
+                </h1>
+                <h2 class="text-2xl sm:text-3xl md:text-4xl mb-8 text-gray-100 text-center md:text-left"><span id="typed"
+                        class="font-bold"></span></h2>
+                <p class="text-lg sm:text-xl md:text-2xl mb-10 max-w-2xl text-gray-200 text-center md:text-left mx-auto md:mx-0 leading-relaxed">Men zamonaviy texnologiyalar va
+                    foydalanuvchi tajribasiga e'tibor
+                    qaratgan holda chiroyli, moslashuvchan veb-saytlar yarataman.</p>
+
+                <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                    <a href="#projects"
+                        class="bg-gradient-to-r from-primary to-secondary text-white px-8 py-4 text-lg rounded-lg shadow-lg hover:shadow-xl transition transform hover:-translate-y-1 text-center">Loyihalarni
+                        ko'rish</a>
+                    <a href="#contact"
+                        class="border-2 border-primary px-8 py-4 text-lg rounded-lg hover:bg-primary hover:text-white transition text-center">Bog'lanish</a>
+                </div>
+            </div>
+            <div class="md:w-1/2 flex justify-center" data-aos="zoom-in" data-aos-delay="300">
+                <div class="relative">
+                    <div
+                        class="absolute -inset-4 bg-gradient-to-r from-primary to-accent-color rounded-full blur-lg opacity-20">
+                    </div>
+                    <img src="Mura.jpg"
+                        alt="Latipov Murodjon"
+                        class="relative w-60 h-60 sm:w-96 sm:h-96 md:w-[28rem] md:h-[28rem] lg:w-[32rem] lg:h-[32rem] rounded-full shadow-xl object-cover border-4 border-white float-animation pulse-glow">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-16 bg-transparent">
+        <div class="responsive-container grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-8 text-center">
+            <div class="stats-card bg-black/40 backdrop-blur-sm border border-white/10 p-6 rounded-2xl shadow hover:bg-black/60" data-aos="fade-up">
+                <h3 class="text-4xl font-extrabold text-primary mb-2" data-count="3">0</h3>
+                <p class="text-gray-300">Yillik tajriba</p>
+            </div>
+            <div class="stats-card bg-black/40 backdrop-blur-sm border border-white/10 p-6 rounded-2xl shadow hover:bg-black/60" data-aos="fade-up"
+                data-aos-delay="100">
+                <h3 class="text-4xl font-extrabold text-primary mb-2" data-count="15">0</h3>
+                <p class="text-gray-300">Loyihalar</p>
+            </div>
+            <div class="stats-card bg-black/40 backdrop-blur-sm border border-white/10 p-6 rounded-2xl shadow hover:bg-black/60" data-aos="fade-up"
+                data-aos-delay="200">
+                <h3 class="text-4xl font-extrabold text-primary mb-2" data-count="20">0</h3>
+                <p class="text-gray-300">Mijozlar</p>
+            </div>
+            <div class="stats-card bg-black/40 backdrop-blur-sm border border-white/10 p-6 rounded-2xl shadow hover:bg-black/60" data-aos="fade-up"
+                data-aos-delay="300">
+                <h3 class="text-4xl font-extrabold text-primary mb-2" data-count="12">0</h3>
+                <p class="text-gray-300">Maqolalar</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20">
+        <div class="responsive-container">
+            <h2 class="text-3xl font-bold text-center mb-16" data-aos="fade-up">Men haqimda</h2>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+                <div class="order-1 lg:order-1" data-aos="fade-right">
+                    <div class="relative max-w-lg mx-auto lg:mx-0">
+                        <div
+                            class="absolute -inset-4 bg-gradient-to-r from-primary to-primary rounded-2xl blur-lg opacity-30">
+                        </div>
+                        <img src="Mura.jpg"
+                            alt="Latipov Murodjon"
+                            class="relative rounded-2xl w-full h-[500px] object-cover border-2 border-primary/30 shadow-[0_20px_50px_rgba(8,_112,_184,_0.7)]">
+                    </div>
+                </div>
+                <div class="order-2 lg:order-2" data-aos="fade-left">
+                    <h3 class="text-3xl font-bold mb-6 text-white">Men qiziquvchan dasturchiman</h3>
+                    <p class="mb-6 text-lg leading-relaxed text-gray-300">Men <span class="text-primary font-semibold">veb-dasturlash sohasida 3 yildan ortiq tajriba</span> ga ega dasturchiman. Asosiy yo'nalishim <span class="text-primary font-semibold">frontend dasturlash</span> bo'lsada, fullstack dasturchi sifatida ham faoliyat yuritaman.</p>
+                    <p class="mb-8 text-lg leading-relaxed text-gray-300">Men <span class="text-primary font-semibold">zamonaviy texnologiyalar</span>dan foydalanib, <span class="text-primary font-semibold">foydalanuvchi tajribasiga e'tibor qaratgan</span> holda chiroyli va funksional veb-saytlar yarataman.</p>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
+                        <div class="group bg-gradient-to-br from-black/50 to-black/30 backdrop-blur-sm border border-primary/20 p-6 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 hover:border-primary/50 hover:bg-gradient-to-br hover:from-primary/10 hover:to-black/40" data-aos="fade-up" data-aos-delay="100">
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 bg-gradient-to-r from-primary to-primary rounded-xl flex items-center justify-center mr-4 group-hover:rotate-12 transition-transform duration-300 shadow-lg">
+                                    <i class="fas fa-code text-white text-lg"></i>
+                                </div>
+                                <div>
+                                    <span class="font-bold text-white group-hover:text-primary transition-colors duration-300 text-lg">Veb dasturlash</span>
+                                    <p class="text-gray-400 text-sm mt-1">Frontend & Backend</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="group bg-gradient-to-br from-black/50 to-black/30 backdrop-blur-sm border border-primary/20 p-6 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 hover:border-primary/50 hover:bg-gradient-to-br hover:from-primary/10 hover:to-black/40" data-aos="fade-up" data-aos-delay="200">
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 bg-gradient-to-r from-primary to-primary rounded-xl flex items-center justify-center mr-4 group-hover:rotate-12 transition-transform duration-300 shadow-lg">
+                                    <i class="fas fa-palette text-white text-lg"></i>
+                                </div>
+                                <div>
+                                    <span class="font-bold text-white group-hover:text-primary transition-colors duration-300 text-lg">UI/UX Dizayn</span>
+                                    <p class="text-gray-400 text-sm mt-1">User Experience</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="group bg-gradient-to-br from-black/50 to-black/30 backdrop-blur-sm border border-primary/20 p-6 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 hover:border-primary/50 hover:bg-gradient-to-br hover:from-primary/10 hover:to-black/40" data-aos="fade-up" data-aos-delay="300">
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 bg-gradient-to-r from-primary to-primary rounded-xl flex items-center justify-center mr-4 group-hover:rotate-12 transition-transform duration-300 shadow-lg">
+                                    <i class="fas fa-mobile-alt text-white text-lg"></i>
+                                </div>
+                                <div>
+                                    <span class="font-bold text-white group-hover:text-primary transition-colors duration-300 text-lg">Moslashuvchan dizayn</span>
+                                    <p class="text-gray-400 text-sm mt-1">Responsive Design</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="group bg-gradient-to-br from-black/50 to-black/30 backdrop-blur-sm border border-primary/20 p-6 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 hover:border-primary/50 hover:bg-gradient-to-br hover:from-primary/10 hover:to-black/40" data-aos="fade-up" data-aos-delay="400">
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 bg-gradient-to-r from-primary to-primary rounded-xl flex items-center justify-center mr-4 group-hover:rotate-12 transition-transform duration-300 shadow-lg">
+                                    <i class="fas fa-search text-white text-lg"></i>
+                                </div>
+                                <div>
+                                    <span class="font-bold text-white group-hover:text-primary transition-colors duration-300 text-lg">SEO optimallashtirish</span>
+                                    <p class="text-gray-400 text-sm mt-1">Search Optimization</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-12">
+        <div class="responsive-container">
+            <h2 class="text-3xl font-bold text-center mb-16 text-white fon" data-aos="fade-up">Mening ko'nikmalarim</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div data-aos="fade-right">
+                    <h3 class="text-xl font-bold mb-6 text-white">Texnik ko'nikmalar</h3>
+                    <div class="space-y-6">
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span>HTML/CSS</span>
+                                <span>100%</span>
+                            </div>
+                            <div class="h-3 bg-gray-200 rounded-full">
+                                <div class="h-3 bg-gradient-to-r from-primary to-secondary rounded-full w-0 transition-all duration-1000 ease-out"
+                                    data-width="100%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span>JavaScript</span>
+                                <span>100%</span>
+                            </div>
+                            <div class="h-3 bg-gray-200 rounded-full">
+                                <div class="h-3 bg-gradient-to-r from-primary to-secondary rounded-full w-0 transition-all duration-1000 ease-out"
+                                    data-width="100%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span>React</span>
+                                <span>100%</span>
+                            </div>
+                            <div class="h-3 bg-gray-200 rounded-full">
+                                <div class="h-3 bg-gradient-to-r from-primary to-secondary rounded-full w-0 transition-all duration-1000 ease-out"
+                                    data-width="100%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span>Node.js</span>
+                                <span>100%</span>
+                            </div>
+                            <div class="h-3 bg-gray-200 rounded-full">
+                                <div class="h-3 bg-gradient-to-r from-primary to-secondary rounded-full w-0 transition-all duration-1000 ease-out"
+                                    data-width="100%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span>Tailwind CSS</span>
+                                <span>100%</span>
+                            </div>
+                            <div class="h-3 bg-gray-200 rounded-full">
+                                <div class="h-3 bg-gradient-to-r from-primary to-secondary rounded-full w-0 transition-all duration-1000 ease-out"
+                                    data-width="100%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div data-aos="fade-left">
+                    <h3 class="text-xl font-bold mb-6">Professional ko'nikmalar</h3>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div
+                            class="bg-black/40 backdrop-blur-sm border border-white/10 p-6 rounded-lg text-center shadow hover:shadow-lg transition transform hover:-translate-y-1">
+                            <i class="fas fa-lightbulb text-3xl text-primary mb-4"></i>
+                            <h4 class="font-bold">Kreativlik</h4>
+                        </div>
+                        <div
+                            class="bg-black/40 backdrop-blur-sm border border-white/10 p-6 rounded-lg text-center shadow hover:shadow-lg transition transform hover:-translate-y-1">
+                            <i class="fas fa-comments text-3xl text-primary mb-4"></i>
+                            <h4 class="font-bold">Aloqa</h4>
+                        </div>
+                        <div
+                            class="bg-black/40 backdrop-blur-sm border border-white/10 p-6 rounded-lg text-center shadow hover:shadow-lg transition transform hover:-translate-y-1">
+                            <i class="fas fa-tasks text-3xl text-primary mb-4"></i>
+                            <h4 class="font-bold">Loyiha boshqaruvi</h4>
+                        </div>
+                        <div
+                            class="bg-black/40 backdrop-blur-sm border border-white/10 p-6 rounded-lg text-center shadow hover:shadow-lg transition transform hover:-translate-y-1">
+                            <i class="fas fa-users text-3xl text-primary mb-4"></i>
+                            <h4 class="font-bold">Jamoa ishi</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="py-20">
+        <div class="responsive-container">
+            <h2 class="text-3xl font-bold text-center mb-16" data-aos="fade-up">Mening loyihalarim</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                <!-- Project 1: Portfolio Website -->
+                <div class="project-card bg-black/40 backdrop-blur-sm border border-white/10 rounded-2xl shadow-lg overflow-hidden group hover:shadow-2xl transition-all duration-300"
+                    data-aos="fade-up">
+                    <div class="h-48 sm:h-56 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&h=300&fit=crop&crop=center" alt="Portfolio Website"
+                            class="w-full h-full object-cover project-image transition duration-500 group-hover:scale-110">
+                        <div class="project-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end p-4 sm:p-6 opacity-0 group-hover:opacity-100 transition-all duration-300">
+                            <a href="https://prox.uz" rel="noopener noreferrer"
+                                class="bg-gradient-to-r from-primary to-emerald-400 text-white px-4 py-2 rounded-lg shadow-lg transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 hover:shadow-xl font-medium">
+                                Ko'rish
+                            </a>
+                        </div>
+                    </div>
+                    <div class="p-4 sm:p-6">
+                        <h3 class="text-lg sm:text-xl font-bold mb-2 text-white">Portfolio Website</h3>
+                        <p class="text-gray-300 text-sm sm:text-base mb-4 leading-relaxed">
+                            Zamonaviy dizayn va animatsiyalar bilan yaratilgan shaxsiy portfolio sayti.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-xs sm:text-sm font-medium">HTML</span>
+                            <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-xs sm:text-sm font-medium">TailwindCSS</span>
+                            <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-xs sm:text-sm font-medium">JavaScript</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project 2: E-commerce Platform -->
+                <div class="project-card bg-black/40 backdrop-blur-sm border border-white/10 rounded-2xl shadow-lg overflow-hidden group hover:shadow-2xl transition-all duration-300"
+                    data-aos="fade-up" data-aos-delay="100">
+                    <div class="h-48 sm:h-56 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=500&h=300&fit=crop&crop=center" alt="E-commerce Platform"
+                            class="w-full h-full object-cover project-image transition duration-500 group-hover:scale-110">
+                        <div class="project-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end p-4 sm:p-6 opacity-0 group-hover:opacity-100 transition-all duration-300">
+                            <a href="https://mashina-uz.onrender.com" rel="noopener noreferrer"
+                                class="bg-gradient-to-r from-primary to-emerald-400 text-white px-4 py-2 rounded-lg shadow-lg transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 hover:shadow-xl font-medium">
+                                Ko'rish
+                            </a>
+                        </div>
+                    </div>
+                    <div class="p-4 sm:p-6">
+                        <h3 class="text-lg sm:text-xl font-bold mb-2 text-white">E-commerce Platform</h3>
+                        <p class="text-gray-300 text-sm sm:text-base mb-4 leading-relaxed">
+                            React va Node.js asosida yaratilgan to'liq e-commerce platformasi.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-xs sm:text-sm font-medium">React</span>
+                            <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-xs sm:text-sm font-medium">Node.js</span>
+                            <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-xs sm:text-sm font-medium">MongoDB</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card bg-black/40 backdrop-blur-sm border border-white/10 rounded-2xl shadow-lg overflow-hidden group"
+                    data-aos="fade-up" data-aos-delay="200">
+
+                    <div class="h-56 overflow-hidden relative">
+                        <img src="https://www.sammi.ac/_next/image?url=https%3A%2F%2Fqk9g5hsrut.ufs.sh%2Ff%2Fxu965PmyvPo01pCyzWVJWIAxq9EjKgNoL7zftvlDbOmru0H2&w=1920&q=75&dpl=dpl_G8TzkNspjCWTuKcnNLxDcFXFoph9" alt="Project"
+                            class="w-full h-full object-cover project-image transition duration-500">
+                        <div
+                            class="project-overlay absolute inset-0 bg-gradient-to-t from-secondary to-transparent flex items-end p-6 opacity-0 group-hover:opacity-100 transition">
+                            <a href="https://mashina-uz.onrender.com/"
+                                class="bg-gradient-to-r from-primary to-secondary text-white px-4 py-2 rounded-lg shadow transform translate-y-4 group-hover:translate-y-0 transition">Batafsil</a>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Weather App</h3>
+                        <p class="text-gray-300 mb-4">API integratsiyasi orqali ob-havo ma’lumotlarini
+                            ko‘rsatuvchi dastur.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span
+                                class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">JavaScript</span>
+                            <span
+                                class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">API</span>
+                            <span
+                                class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Chart.js</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-20 relative overflow-hidden">
+        <!-- Background Elements -->
+        <div class="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5"></div>
+        <div class="absolute top-20 left-10 w-32 h-32 bg-primary/10 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-20 right-10 w-40 h-40 bg-secondary/10 rounded-full blur-3xl"></div>
+        
+        <div class="responsive-container relative z-10">
+            <!-- Section Header -->
+            <div class="text-center mb-20" data-aos="fade-up">
+                <div class="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-4">
+                    <i class="fas fa-quote-left"></i>
+                    Mijozlar fikri
+                </div>
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-white via-gray-100 to-gray-300 bg-clip-text text-transparent">
+                    Hamkorlarimiz nima deydi?
+                </h2>
+                <p class="text-lg text-gray-300 max-w-2xl mx-auto leading-relaxed">
+                    Mening ishim haqida mijozlarimning fikr-mulohazalari va baholari
+                </p>
+            </div>
+
+            <!-- Testimonials Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+                <!-- Testimonial 1 -->
+                <div class="group relative" data-aos="fade-up" data-aos-delay="100">
+                    <div class="absolute inset-0 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500 opacity-0 group-hover:opacity-100"></div>
+                    <div class="relative bg-black/60 backdrop-blur-xl border border-white/10 p-8 rounded-3xl shadow-2xl hover:shadow-primary/10 transition-all duration-500 group-hover:border-primary/30">
+                        <!-- Quote Icon -->
+                        <div class="absolute -top-4 -left-4 w-12 h-12 bg-gradient-to-r from-primary to-secondary rounded-2xl flex items-center justify-center shadow-lg">
+                            <i class="fas fa-quote-left text-white text-lg"></i>
+                        </div>
+                        
+                        <!-- Stars -->
+                        <div class="flex items-center gap-1 mb-6">
+                            <div class="flex text-yellow-400 text-lg">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span class="ml-2 text-sm text-gray-400 font-medium">5.0</span>
+                        </div>
+                        
+                        <!-- Testimonial Text -->
+                        <blockquote class="text-lg leading-relaxed text-gray-100 mb-8 font-light">
+                            "Murodjon bilan ishlash juda yoqimli tajriba bo'ldi. Professional yondashuv, 
+                            o'z vaqtida topshirish va mukammal natija. Loyihamiz kutganimizdan ham yaxshi chiqdi!"
+                        </blockquote>
+                        
+                        <!-- Author Info -->
+                        <div class="flex items-center gap-4">
+                            <div class="w-14 h-14 bg-gradient-to-r from-primary to-secondary rounded-2xl flex items-center justify-center text-white font-bold text-xl shadow-lg">
+                                OK
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white text-lg">Olimjon Karimov</h4>
+                                <p class="text-primary font-medium">Startup asoschisi</p>
+                                <div class="flex items-center gap-1 mt-1">
+                                    <i class="fas fa-building text-xs text-gray-400"></i>
+                                    <span class="text-xs text-gray-400">TechStart Solutions</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="group relative" data-aos="fade-up" data-aos-delay="200">
+                    <div class="absolute inset-0 bg-gradient-to-r from-secondary/20 to-primary/20 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500 opacity-0 group-hover:opacity-100"></div>
+                    <div class="relative bg-black/60 backdrop-blur-xl border border-white/10 p-8 rounded-3xl shadow-2xl hover:shadow-secondary/10 transition-all duration-500 group-hover:border-secondary/30">
+                        <!-- Quote Icon -->
+                        <div class="absolute -top-4 -left-4 w-12 h-12 bg-gradient-to-r from-secondary to-primary rounded-2xl flex items-center justify-center shadow-lg">
+                            <i class="fas fa-quote-left text-white text-lg"></i>
+                        </div>
+                        
+                        <!-- Stars -->
+                        <div class="flex items-center gap-1 mb-6">
+                            <div class="flex text-yellow-400 text-lg">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span class="ml-2 text-sm text-gray-400 font-medium">5.0</span>
+                        </div>
+                        
+                        <!-- Testimonial Text -->
+                        <blockquote class="text-lg leading-relaxed text-gray-100 mb-8 font-light">
+                            "Portfolio sayti juda ajoyib chiqdi! Zamonaviy dizayn, tez ishlash va mobil qurilmalarda 
+                            mukammal ko'rinish. Barcha talablarimiz hisobga olindi."
+                        </blockquote>
+                        
+                        <!-- Author Info -->
+                        <div class="flex items-center gap-4">
+                            <div class="w-14 h-14 bg-gradient-to-r from-secondary to-primary rounded-2xl flex items-center justify-center text-white font-bold text-xl shadow-lg">
+                                NR
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white text-lg">Nigina Rahimova</h4>
+                                <p class="text-secondary font-medium">Marketing menejeri</p>
+                                <div class="flex items-center gap-1 mt-1">
+                                    <i class="fas fa-briefcase text-xs text-gray-400"></i>
+                                    <span class="text-xs text-gray-400">Digital Marketing Agency</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="group relative" data-aos="fade-up" data-aos-delay="300">
+                    <div class="absolute inset-0 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500 opacity-0 group-hover:opacity-100"></div>
+                    <div class="relative bg-black/60 backdrop-blur-xl border border-white/10 p-8 rounded-3xl shadow-2xl hover:shadow-primary/10 transition-all duration-500 group-hover:border-primary/30">
+                        <!-- Quote Icon -->
+                        <div class="absolute -top-4 -left-4 w-12 h-12 bg-gradient-to-r from-primary to-secondary rounded-2xl flex items-center justify-center shadow-lg">
+                            <i class="fas fa-quote-left text-white text-lg"></i>
+                        </div>
+                        
+                        <!-- Stars -->
+                        <div class="flex items-center gap-1 mb-6">
+                            <div class="flex text-yellow-400 text-lg">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <span class="ml-2 text-sm text-gray-400 font-medium">4.5</span>
+                        </div>
+                        
+                        <!-- Testimonial Text -->
+                        <blockquote class="text-lg leading-relaxed text-gray-100 mb-8 font-light">
+                            "Kreativ va professional yondashuv. Barcha texnik masalalar mukammal hal qilindi. 
+                            Jamoamiz bilan ishlash juda oson va samarali bo'ldi."
+                        </blockquote>
+                        
+                        <!-- Author Info -->
+                        <div class="flex items-center gap-4">
+                            <div class="w-14 h-14 bg-gradient-to-r from-primary to-secondary rounded-2xl flex items-center justify-center text-white font-bold text-xl shadow-lg">
+                                RT
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white text-lg">Rustam Toshmatov</h4>
+                                <p class="text-primary font-medium">IT kompaniya egasi</p>
+                                <div class="flex items-center gap-1 mt-1">
+                                    <i class="fas fa-code text-xs text-gray-400"></i>
+                                    <span class="text-xs text-gray-400">InnovateTech Ltd</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 4 -->
+                <div class="group relative" data-aos="fade-up" data-aos-delay="400">
+                    <div class="absolute inset-0 bg-gradient-to-r from-secondary/20 to-primary/20 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500 opacity-0 group-hover:opacity-100"></div>
+                    <div class="relative bg-black/60 backdrop-blur-xl border border-white/10 p-8 rounded-3xl shadow-2xl hover:shadow-secondary/10 transition-all duration-500 group-hover:border-secondary/30">
+                        <!-- Quote Icon -->
+                        <div class="absolute -top-4 -left-4 w-12 h-12 bg-gradient-to-r from-secondary to-primary rounded-2xl flex items-center justify-center shadow-lg">
+                            <i class="fas fa-quote-left text-white text-lg"></i>
+                        </div>
+                        
+                        <!-- Stars -->
+                        <div class="flex items-center gap-1 mb-6">
+                            <div class="flex text-yellow-400 text-lg">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span class="ml-2 text-sm text-gray-400 font-medium">5.0</span>
+                        </div>
+                        
+                        <!-- Testimonial Text -->
+                        <blockquote class="text-lg leading-relaxed text-gray-100 mb-8 font-light">
+                            "E-commerce loyihamiz uchun mukammal yechim taklif qildi. Foydalanuvchilar uchun qulay 
+                            interfeys va tez ishlash. Natijadan juda mamnunmiz!"
+                        </blockquote>
+                        
+                        <!-- Author Info -->
+                        <div class="flex items-center gap-4">
+                            <div class="w-14 h-14 bg-gradient-to-r from-secondary to-primary rounded-2xl flex items-center justify-center text-white font-bold text-xl shadow-lg">
+                                SA
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white text-lg">Sardor Alimov</h4>
+                                <p class="text-secondary font-medium">E-commerce direktor</p>
+                                <div class="flex items-center gap-1 mt-1">
+                                    <i class="fas fa-shopping-cart text-xs text-gray-400"></i>
+                                    <span class="text-xs text-gray-400">ShopUz Platform</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Call to Action -->
+            <div class="text-center mt-16" data-aos="fade-up" data-aos-delay="500">
+                <div class="inline-flex items-center gap-3 bg-gradient-to-r from-primary/10 to-secondary/10 backdrop-blur-sm border border-white/10 px-8 py-4 rounded-2xl">
+                    <div class="flex -space-x-2">
+                        <div class="w-10 h-10 bg-gradient-to-r from-primary to-secondary rounded-full border-2 border-white/20 flex items-center justify-center text-white font-bold text-sm">OK</div>
+                        <div class="w-10 h-10 bg-gradient-to-r from-secondary to-primary rounded-full border-2 border-white/20 flex items-center justify-center text-white font-bold text-sm">NR</div>
+                        <div class="w-10 h-10 bg-gradient-to-r from-primary to-secondary rounded-full border-2 border-white/20 flex items-center justify-center text-white font-bold text-sm">RT</div>
+                        <div class="w-10 h-10 bg-gradient-to-r from-secondary to-primary rounded-full border-2 border-white/20 flex items-center justify-center text-white font-bold text-sm">SA</div>
+                    </div>
+                    <div class="text-left">
+                        <p class="text-white font-medium">50+ mamnun mijozlar</p>
+                        <p class="text-sm text-gray-300">4.9/5 o'rtacha baho</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 relative overflow-hidden">
+        <!-- Background Elements -->
+        <div class="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-secondary/10"></div>
+        <div class="absolute top-10 right-20 w-64 h-64 bg-primary/5 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-10 left-20 w-80 h-80 bg-secondary/5 rounded-full blur-3xl"></div>
+        
+        <div class="responsive-container relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center max-w-7xl mx-auto">
+                
+                <!-- Left Content -->
+                <div class="space-y-8" data-aos="fade-right">
+                    <div class="space-y-6">
+                        <div class="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium">
+                            <i class="fas fa-paper-plane"></i>
+                            Bog'lanish
+                        </div>
+                        
+                        <h2 class="text-5xl lg:text-6xl font-bold leading-tight">
+                            <span class="text-white">Keling, men</span><br>
+                            <span class="bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent">
+                                Latipov<br>
+                                Murodjon
+                            </span>
+                        </h2>
+                        
+                        <h3 class="text-2xl lg:text-3xl font-semibold text-gray-200">
+                            Frontend Developer
+                        </h3>
+                        
+                        <p class="text-lg text-gray-300 leading-relaxed max-w-lg">
+                            Men zamonaviy texnologiyalar va foydalanuvchi 
+                            tajribasiga e'tibor qaratgan holda chiroyli, 
+                            moslashuvchan web-saytlar yarataman.
+                        </p>
+                        
+                        <!-- Action Buttons -->
+                        <div class="flex flex-col sm:flex-row gap-4 pt-4">
+                            <a href="tel:+998934268607" 
+                                class="inline-flex items-center justify-center gap-3 bg-gradient-to-r from-primary to-secondary text-white px-8 py-4 rounded-2xl font-semibold text-lg shadow-lg hover:shadow-primary/25 transition-all duration-300 hover:scale-105 group">
+                                <i class="fas fa-phone group-hover:animate-pulse"></i>
+                                Qo'ng'iroq qilish
+                            </a>
+                            <a href="mailto:latipov.murodjon@gmail.com" 
+                                class="inline-flex items-center justify-center gap-3 bg-white/10 backdrop-blur-sm border border-white/20 text-white px-8 py-4 rounded-2xl font-semibold text-lg hover:bg-white/20 transition-all duration-300 hover:scale-105 group">
+                                <i class="fas fa-envelope group-hover:animate-pulse"></i>
+                                Email yuborish
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Content - Contact Info & Form -->
+                <div class="space-y-8" data-aos="fade-left">
+                    <!-- Contact Cards -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <!-- Email Card -->
+                        <div class="group relative">
+                            <div class="absolute inset-0 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
+                            <div class="relative bg-black/60 backdrop-blur-xl border border-white/10 p-6 rounded-2xl hover:border-primary/30 transition-all duration-300">
+                                <div class="w-12 h-12 bg-gradient-to-r from-primary to-secondary rounded-xl flex items-center justify-center mb-4 shadow-lg">
+                                    <i class="fas fa-envelope text-white text-lg"></i>
+                                </div>
+                                <h4 class="font-bold text-white mb-2">Email</h4>
+                                <p class="text-gray-300 text-sm">latipov.murodjon@gmail.com</p>
+                            </div>
+                        </div>
+
+                        <!-- Phone Card -->
+                        <div class="group relative">
+                            <div class="absolute inset-0 bg-gradient-to-r from-secondary/20 to-primary/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
+                            <div class="relative bg-black/60 backdrop-blur-xl border border-white/10 p-6 rounded-2xl hover:border-secondary/30 transition-all duration-300">
+                                <div class="w-12 h-12 bg-gradient-to-r from-secondary to-primary rounded-xl flex items-center justify-center mb-4 shadow-lg">
+                                    <i class="fas fa-phone text-white text-lg"></i>
+                                </div>
+                                <h4 class="font-bold text-white mb-2">Telefon</h4>
+                                <p class="text-gray-300 text-sm">+998 (93) 426-86-07</p>
+                            </div>
+                        </div>
+
+                        <!-- Location Card -->
+                        <div class="group relative">
+                            <div class="absolute inset-0 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
+                            <div class="relative bg-black/60 backdrop-blur-xl border border-white/10 p-6 rounded-2xl hover:border-primary/30 transition-all duration-300">
+                                <div class="w-12 h-12 bg-gradient-to-r from-primary to-secondary rounded-xl flex items-center justify-center mb-4 shadow-lg">
+                                    <i class="fas fa-map-marker-alt text-white text-lg"></i>
+                                </div>
+                                <h4 class="font-bold text-white mb-2">Manzil</h4>
+                                <p class="text-gray-300 text-sm">Bukhara, Uzbekistan</p>
+                            </div>
+                        </div>
+
+                        <!-- Availability Card -->
+                        <div class="group relative">
+                            <div class="absolute inset-0 bg-gradient-to-r from-secondary/20 to-primary/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
+                            <div class="relative bg-black/60 backdrop-blur-xl border border-white/10 p-6 rounded-2xl hover:border-secondary/30 transition-all duration-300">
+                                <div class="w-12 h-12 bg-gradient-to-r from-secondary to-primary rounded-xl flex items-center justify-center mb-4 shadow-lg">
+                                    <div class="w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
+                                </div>
+                                <h4 class="font-bold text-white mb-2">Holat</h4>
+                                <p class="text-green-400 text-sm font-medium">Yangi loyihalar uchun ochiq</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Social Links -->
+                    <div class="bg-black/40 backdrop-blur-xl border border-white/10 p-8 rounded-3xl">
+                        <h4 class="text-xl font-bold text-white mb-6 text-center">Ijtimoiy tarmoqlarda</h4>
+                        <div class="flex justify-center gap-4">
+                            <a href="https://t.me/latipovmurodjon" target="_blank" rel="noopener noreferrer"
+                                class="group w-14 h-14 bg-gradient-to-r from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center text-white shadow-lg hover:shadow-blue-500/25 transition-all duration-300 hover:scale-110">
+                                <i class="fab fa-telegram text-xl group-hover:animate-pulse"></i>
+                            </a>
+                            <a href="https://github.com/latipovmurodjon" target="_blank" rel="noopener noreferrer"
+                                class="group w-14 h-14 bg-gradient-to-r from-gray-700 to-gray-800 rounded-2xl flex items-center justify-center text-white shadow-lg hover:shadow-gray-700/25 transition-all duration-300 hover:scale-110">
+                                <i class="fab fa-github text-xl group-hover:animate-pulse"></i>
+                            </a>
+                            <a href="https://linkedin.com/in/latipovmurodjon" target="_blank" rel="noopener noreferrer"
+                                class="group w-14 h-14 bg-gradient-to-r from-blue-600 to-blue-700 rounded-2xl flex items-center justify-center text-white shadow-lg hover:shadow-blue-600/25 transition-all duration-300 hover:scale-110">
+                                <i class="fab fa-linkedin-in text-xl group-hover:animate-pulse"></i>
+                            </a>
+                            <a href="https://instagram.com/latipov_murodjon" target="_blank" rel="noopener noreferrer"
+                                class="group w-14 h-14 bg-gradient-to-r from-pink-500 to-purple-600 rounded-2xl flex items-center justify-center text-white shadow-lg hover:shadow-pink-500/25 transition-all duration-300 hover:scale-110">
+                                <i class="fab fa-instagram text-xl group-hover:animate-pulse"></i>
+                            </a>
+                        </div>
+                        
+                        <!-- Quick Stats -->
+                        <div class="grid grid-cols-3 gap-4 mt-8 pt-6 border-t border-white/10">
+                            <div class="text-center">
+                                <div class="text-2xl font-bold text-primary">50+</div>
+                                <div class="text-xs text-gray-400">Loyihalar</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-2xl font-bold text-secondary">3+</div>
+                                <div class="text-xs text-gray-400">Yil tajriba</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-2xl font-bold text-primary">24/7</div>
+                                <div class="text-xs text-gray-400">Qo'llab-quvvatlash</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-transparent text-white py-12">
+        <div class="responsive-container">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <a href="#" class="text-2xl font-extrabold bg-gradient-to-r from-primary to-accent-color bg-clip-text text-transparent">Latipov Murodjon</a>
+                    <p class="mt-2 text-gray-400">Zamonaviy veb yechimlar</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-primary transition"><i class="fab fa-telegram text-xl"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-primary transition"><i class="fab fa-github text-xl"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-primary transition"><i class="fab fa-linkedin-in text-xl"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-primary transition"><i class="fab fa-instagram text-xl"></i></a>
+                </div>
+            </div>
+            <div class="border-t border-white/10 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 Latipov Murodjon. Barcha huquqlar himoyalangan.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Preloader
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('preloader').style.display = 'none';
+            }, 500);
+        });
+
+        // Initialize Typed.js after DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Typing animation
+            new Typed('#typed', {
+                strings: ["Frontend Developer", "Backend Developer", "Fullstack Developer"],
+                typeSpeed: 60,
+                backSpeed: 40,
+                loop: true
+            });
+
+            // Stats count-up
+            const counters = document.querySelectorAll('[data-count]');
+            const speed = 200;
+            
+            const counterObserver = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const counter = entry.target;
+                        const update = () => {
+                            const target = +counter.getAttribute('data-count');
+                            const count = +counter.innerText;
+                            const increment = Math.ceil(target / speed);
+                            if (count < target) {
+                                counter.innerText = count + increment;
+                                setTimeout(update, 30);
+                            } else {
+                                counter.innerText = target;
+                            }
+                        };
+                        update();
+                        counterObserver.unobserve(counter);
+                    }
+                });
+            }, { threshold: 0.5 });
+            
+            counters.forEach(counter => counterObserver.observe(counter));
+
+            // Skill bars animation
+            const skillBars = document.querySelectorAll('.transition-all');
+            const skillBarObserver = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const bar = entry.target;
+                        bar.style.width = bar.getAttribute('data-width');
+                        skillBarObserver.unobserve(bar);
+                    }
+                });
+            }, { threshold: 0.5 });
+            
+            skillBars.forEach(bar => skillBarObserver.observe(bar));
+
+            // Burger menu functionality
+            const menuBtn = document.getElementById('menu-btn');
+            const burgerMenu = document.getElementById('burger-menu');
+            const menuLinks = document.querySelectorAll('.menu-link');
+            let isMenuOpen = false;
+
+            // Toggle menu function
+            function toggleBurgerMenu() {
+                isMenuOpen = !isMenuOpen;
+                const mainContent = document.querySelector('main') || document.querySelector('#home');
+                
+                if (isMenuOpen) {
+                    // Open menu
+                    burgerMenu.classList.add('open');
+                    if (mainContent) mainContent.classList.add('content-pushed');
+                    menuBtn.querySelector('i').classList.remove('fa-bars');
+                    menuBtn.querySelector('i').classList.add('fa-times');
+                } else {
+                    // Close menu
+                    burgerMenu.classList.remove('open');
+                    if (mainContent) mainContent.classList.remove('content-pushed');
+                    menuBtn.querySelector('i').classList.remove('fa-times');
+                    menuBtn.querySelector('i').classList.add('fa-bars');
+                }
+            }
+
+            // Event listeners
+            if (menuBtn && burgerMenu) {
+                menuBtn.addEventListener('click', toggleBurgerMenu);
+
+                // Close menu when clicking on nav links
+                menuLinks.forEach(link => {
+                    link.addEventListener('click', () => {
+                        if (isMenuOpen) {
+                            toggleBurgerMenu();
+                        }
+                    });
+                });
+
+                // Close menu when clicking outside
+                document.addEventListener('click', (e) => {
+                    if (isMenuOpen && !burgerMenu.contains(e.target) && !menuBtn.contains(e.target)) {
+                        toggleBurgerMenu();
+                    }
+                });
+            }
+
+            // AOS init
+            AOS.init({ 
+                duration: 800, 
+                once: true,
+                easing: 'ease-in-out'
+            });
+
+            // Generate a crisp circular favicon from Mura.jpg
+            (function setCircularFavicon(src){
+                const img = new Image();
+                img.crossOrigin = 'anonymous';
+                img.src = src;
+                img.onload = () => {
+                    const size = 256; // high-res for clarity
+                    const canvas = document.createElement('canvas');
+                    canvas.width = size; canvas.height = size;
+                    const ctx = canvas.getContext('2d');
+                    ctx.clearRect(0, 0, size, size);
+                    // circle clip
+                    ctx.save();
+                    ctx.beginPath();
+                    ctx.arc(size/2, size/2, size/2 - 2, 0, Math.PI * 2);
+                    ctx.closePath();
+                    ctx.clip();
+                    // draw image with cover fit
+                    const iw = img.naturalWidth || img.width;
+                    const ih = img.naturalHeight || img.height;
+                    const scale = Math.max(size/iw, size/ih);
+                    const w = iw * scale;
+                    const h = ih * scale;
+                    const x = (size - w) / 2;
+                    const y = (size - h) / 2;
+                    ctx.drawImage(img, x, y, w, h);
+                    ctx.restore();
+                    // green border ring for neat circle edge
+                    ctx.strokeStyle = 'rgba(16,185,129,0.95)';
+                    ctx.lineWidth = 8;
+                    ctx.beginPath();
+                    ctx.arc(size/2, size/2, size/2 - 4, 0, Math.PI * 2);
+                    ctx.stroke();
+
+                    const url = canvas.toDataURL('image/png');
+                    // replace/append favicon
+                    let link = document.querySelector('link[rel="icon"]');
+                    if (!link) { link = document.createElement('link'); link.rel = 'icon'; }
+                    link.type = 'image/png';
+                    link.sizes = '192x192';
+                    link.href = url;
+                    document.head.appendChild(link);
+
+                    // also set Apple touch icon
+                    let apple = document.querySelector('link[rel="apple-touch-icon"]');
+                    if (!apple) { apple = document.createElement('link'); apple.rel = 'apple-touch-icon'; }
+                    apple.href = url;
+                    document.head.appendChild(apple);
+                };
+            })('Mura.jpg');
+        });
+    </script>
+</body>
+
+</html>
